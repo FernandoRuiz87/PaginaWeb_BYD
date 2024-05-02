@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #D9D9D9; /* Un color de fondo para rellenar cualquier espacio sobrante */
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('Images/Fondo_home.jpg'); /* Apunta a la imagen deseada */
+    background-size: cover; /* Asegura que la imagen cubra todo el espacio disponible */
+    background-position: center; /* Centra la imagen en el contenedor */
+    background-repeat: no-repeat; /* Evita la repetición de la imagen */
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    background-color: #252728;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    z-index: 10;
+}
+
+
+.logo img {
+    height: 25px; /* Ajusta el tamaño de la imagen */
+    width: auto; /* Mantén la proporción de la imagen */
+}
+
+.bars {
+    display: none;
+}
+
+.nav-bar {
+    flex: 1; /* Ocupa el espacio restante */
+    display: flex;
+    justify-content: center; /* Centra los elementos en la barra */
+}
+.nav-bar ul{
+    display: flex;
+}
+
+.nav-bar ul li a {
+    display: block;
+    color: #FFFFFF;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 15px;
+    transition: 0.2s;
+    margin: 0 5px;
+}
+
+.nav-bar ul li a:hover {
+    color: #212127;
+    background-color: #D9D9D9;
+}
+
+.modelosMenu {
+    display: none;
+    position: absolute;
+    top: 80px; /* Coloca la barra justo debajo de la barra de navegación */
+    left: 0; 
+    right: 0; 
+    background-color: #FFF;
+    padding: 10px;
+    border: 1px sólido #ccc;
+    animation: slideDown 0.8s forwards;
+    z-index: 5; /* Asegura que el menú esté detrás de la barra de navegación */
+}
+
+.modelosMenu.show {
+    display: block;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.modelosMenu .radio-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    color: #000;
+    background-color: #FFF;
+    cursor: pointer;
+    height: 45px;
+    text-align: center;
+}
+
+input[type="radio"]:checked + label {
+    background-color: #FFF;
+    border-bottom: 1px sólido #000;
+    border-width: 5px;
+    color: #000;
+}
+
+
+.option-image {
+    display: flex;
+    margin: 10px auto;
+    width: 15%; /* Ajusta la anchura de la imagen */
+    cursor: pointer;
+}
+
+
+@media(max-width:900px) {
+    header {
+        padding: 0px 30px;
+    }
+
+    .bars {
+        display: block;
+        cursor: pointer;
+        float: right;
+    }
+
+    .bars .line {
+        width: 30px;
+        height: 3px;
+        background-color: #FFFFFF;
+        margin: 6px 0px;
+    }
+
+    .nav-bar {
+        height: 0px;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        background-color: #2e2f34;
+        transition: 0.5s;
+        overflow: hidden;
+    }
+
+    .nav-bar.active {
+        height: 100%;
+    }
+
+    .nav-bar ul {
+        display: block;
+        width: fit-content;
+        margin: 40px auto 0 auto;
+        text-align: center;
+        transition: 0.5s;
+        opacity: 0;
+    }
+
+    .nav-bar.active ul {
+        opacity: 1;
+    }
+
+    .nav-bar ul li a {
+        margin-bottom: 20px;
+    }
+}
