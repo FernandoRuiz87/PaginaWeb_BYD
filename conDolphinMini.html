@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleConDolphinMini.css">
+    <script>
+        var selectColor = '1';
+    </script>
+</head>
+
+<body>
+    <header>
+
+        <div class="logo">
+            <a href="index.html">
+                <img src="Images/BYD_Logo.png" alt="BYD Logo"> <!-- Enlace al logo como imagen -->
+            </a>
+        </div>
+
+        <div class = "bars" onclick="toggleMenu()">
+            <div class = "line"></div>
+            <div class = "line"></div>
+            <div class = "line"></div>
+        </div>
+
+        <nav class = "nav-bar">
+            <ul>
+                <li>
+                    <a href="#" id = "modelos" class = "active" >Modelos</a>
+                    <div class="modelosMenu">
+                        <label for="option1" class="radio-button" onclick="showImage('Images/modelos/han.png', 'han.html')">BYD HAN</label>
+                        <label for="option2" class="radio-button" onclick="showImage('Images/modelos/tang.png', 'tang.html')">BYD TANG</label>
+                        <label for="option3" class="radio-button" onclick="showImage('Images/modelos/yuan.png', 'yuan.html')">BYD YUAN</label>
+                        <label for="option4" class="radio-button" onclick="showImage('Images/modelos/seal.png', 'seal.html')">BYD SEAL</label>
+                        <label for="option2" class="radio-button" onclick="showImage('Images/modelos/dolphin.png', 'dolphin.html')">BYD DOLPHIN</label>
+                        <label for="option3" class="radio-button" onclick="showImage('Images/modelos/dolphinMini.png', 'dolphinMini.html')">BYD DOLPHIN MINI</label>
+                        <label for="option4" class="radio-button" onclick="showImage('Images/modelos/song.png', 'song.html')">BYD SONG</label>
+                        
+                        <img id="modelImage" class="option-image" style="display: none;" /> <!-- Contenedor de imagen inicial oculto -->
+                    </div>
+                </li>
+                <li>
+                    <a href="AcercaBYD.html" id = "acerca" class = "active" >Acerca de BYD</a>
+                </li>
+                <li>
+                    <a href="Inventario.html" id = "inventario" class = "active" >Inventario</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="help">
+            <a href="help.html">
+                <img src="Images/Help.png" alt="Help"> <!-- Enlace al logo como imagen -->
+            </a>
+        </div>
+
+    </header>
+
+    <div class="main">
+        <section class="section">
+
+        </section>
+        <aside class="aside">
+            <h1>BYD DOLPHIN MINI</h1>
+
+            <div>
+                <div id="controls">
+                    <button id="colorBtn" onclick="showColors()">Color</button>
+                    <button id="interiorBtn" onclick="showInterior()">Interior</button>
+                    <button id="rinesBtn" onclick="showRines()">Rines</button>
+                </div>
+                <div id="options">
+                    <!-- Botones de colores -->
+                    <div id="colorOptions" style="display: none;">
+                        <button onclick="selectColor('1', 'Configuracion/DolphinMini/DMBlanco1.jpg')">
+                            <span>Apricity White</span>
+                        </button>
+                        <button onclick="selectColor('2', 'Configuracion/DolphinMini/DMRosa1.jpg')">
+                            <span>Peach Pink</span>
+                        </button>
+                        <button onclick="selectColor('3', 'Configuracion/DolphinMini/DMNegro1.jpg')">
+                            <span>Polar Night Black</span>
+                        </button>
+                        <button onclick="selectColor('4', 'Configuracion/DolphinMini/DMAmarillo1.jpg')">
+                            <span>Sprout Green</span>
+                        </button>
+                    </div>
+                    <!-- Botones de interiores -->
+                    <div id="interiorOptions" style="display: none;">
+                        <button onclick="changeCarImage('Configuracion/DolphinMini/DMInt_AzulO.jpg')">
+                            <span>Dark Blue</span>
+                        </button>
+                        <button onclick="changeCarImage('Configuracion/DolphinMini/DMInt_Rosa.jpg')">
+                            <span>Angel Pink</span>
+                        </button>
+                        <button onclick="changeCarImage('Configuracion/DolphinMini/DMInt_AzulC.jpg')">
+                            <span>Light Blue</span>
+                        </button>
+                    </div>
+                    <!-- Botones de rines -->
+                    <div id="rinesOptions" style="display: none;">
+                        <p>16 pulgadas</p>
+                        <button  data-color="1" onclick="changeCarImage('Configuracion/DolphinMini/DMBlanco2.jpg')">
+                            <img src="Images/dolphinMini/rinesDolphinMini.png" alt="Rines 1">
+                        </button>
+
+                        <button data-color="2" onclick="changeCarImage('Configuracion/DolphinMini/DMRosa2.jpg')">
+                            <img src="Images/dolphinMini/rinesDolphinMini.png" alt="Rines 2">
+                        </button>
+
+                        <button data-color="3" onclick="changeCarImage('Configuracion/DolphinMini/DMNegro2.jpg')">
+                            <img src="Images/dolphinMini/rinesDolphinMini.png" alt="Rines 3">
+                        </button>
+
+                        <button  data-color="4" onclick="changeCarImage('Configuracion/DolphinMini/DMAmarillo2.jpg')">
+                            <img src="Images/dolphinMini/rinesDolphinMini.png" alt="Rines 4">
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <p class="price">Precio de compra: 398,800.00 MXN</p>
+        </aside>
+    </div>
+
+    <script src="scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

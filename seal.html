@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styleSeal.css">
 </head>
 
 <body>
@@ -57,33 +57,59 @@
 
     </header>
 
-    <body>
+    <div class = "container">
 
-        <main id = "hero">
-
+        <section class="two">
+            <div class="banner">
+                <h1>BYD SEAL</h1>
+                <p>El impresionante BYD SEAL es una verdadera obra maestra del diseño inspirado en el océano, con un frente en forma de X que emana deportividad y estilo. Se enorgullece de recibir el codiciado iF Design Award, lo que consolida su diseño e innovación superior.</p>
+            </div>
             <div class = "promo">
-                <a href = "AgendarCita.html">
+                <a href="AgendarCita.html?modelo=Seal">
                     <button type = "button">Agenda Cita</button>
                 </a>
+                <a href="configuracion.html">
+                    <button type = "button" href = "configuracion.html">Configuración</button>
+                </a>
             </div>
+        </section>
 
-            <div class = "promoHelp">
-                <a href="help.html" class = "helpPantalla">
-                    <img src="Images/Help.png" alt="Help"> <!-- Enlace al logo como imagen -->
+        <section class="three">
+            <div class="info-panel">
+                <div class="info-item">
+                    <div class="info-value">3.8s</div>
+                    <div class="info-label">Aceleración de 0 a 100 km/h</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-value">520km</div>
+                    <div class="info-label">Autonomía ultralarga (WLTC)</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-value">CTB</div>
+                    <div class="info-label">Tecnología Cell to Body</div>
+                </div>
+            </div>            
+        </section>
+
+        <section class="four">
+            <div class="banner">
+                <h1>Cabina Inteligente y Cómoda</h1>
+                <p>La cómoda cabina construida para BYD SEAL basada en una Estética Marina, te permite sentirte cómodo y relajado así como experimentar la atmósfera general llena de vitalidad. Tiene un excelente diseño ergonómico y un acabado exquisito que interpretan la connotación de consideración y alta calidad.</p>
+            </div>
+            </div>
+        </section>
+        
+        <section class="five">
+
+            <div class = "promo">
+                <a download="FichaTecnicaSeal" href = "FichasT/sealT.pdf">
+                    <button type = "button">Ficha técnica</button>
                 </a>
             </div>
 
-            <video muted autoplay loop>
-                <source src="Images/VideoFondo.mp4" type = "video/mp4">
-            </video>
+        </section>
 
-            <div class = "capa">
-
-            </div>
-        </main>
-
-    </body>
-
+    </div>
     <script src="scripts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 

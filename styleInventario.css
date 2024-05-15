@@ -40,16 +40,6 @@ header {
     width: auto;
 }
 
-.helpPantalla {
-    margin-right: 50px;
-    display: none;
-}
-
-.helpPantalla img {
-    height: 30px;
-    width: auto;
-}
-
 .bars {
     display: none;
 }
@@ -167,10 +157,6 @@ input[type="radio"]:checked + label {
         display: none;
     }
     
-    .helpPantalla {
-        display: block;
-    }
-
     .bars {
         display: block;
         cursor: pointer;
@@ -219,76 +205,90 @@ input[type="radio"]:checked + label {
     }
 }
 
-/*Configuracion para video y elementos en pantalla*/
-#hero {
-    min-height: 100vh; /* Ocupa el 100% de la altura visible del viewport */
-    position: relative;
-    overflow: hidden; /* Asegura que el contenido extra no desborde */
-    margin-top: -80px; /* Compensa el espacio ocupado por el header fijo */
-    padding-top: 80px; /* Mantiene el espacio para el header */
+/* styles.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
 }
 
-video {
-    position: absolute;
-    top: 0;
-    left: 0;
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.filters {
+    flex: 1 1 20%; /* Toma el 20% del ancho de la pantalla */
+    padding: 20px;
+    border-right: 3px solid #ccc;
+    background-color: #f8f8f8; /* Color de fondo para los filtros */
+    margin-top: 80px; /* Ajusta este valor según necesites */
+}
+
+
+.filters form {
+    background: white;
+    padding: 20px;
+    border-radius: 8=10px;
+    box-shadow: 3px 4px 6px rgba(0,0,0,0.1);
+}
+
+.filters label, .filters select, .filters button {
+    display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    margin: 10px 0;
 }
 
-.capa {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #1c1c1c;
-    opacity: 0.5;
-    mix-blend-mode: overlay;
-}
-
-.promo {
-    position: absolute; /* Absoluta para colocarlo dentro de un contenedor superior */
-    bottom: 200px; /* Distancia desde el borde inferior */
-    left: 50%;
-    transform: translateX(-50%); /* Centra horizontalmente */
-    display: flex; /* Flexbox para organizar los elementos horizontalmente */
-    flex-direction: row; /* Configura la dirección en fila (horizontal) */
-    justify-content: center; /* Centra el contenido en el contenedor */
-    align-items: center; /* Centra verticalmente dentro del contenedor */
-    gap: 15px; /* Espaciado entre los botones */
-    width: 80%; /* Ajusta el ancho si es necesario */
-    z-index: 2; /* Asegura que los botones estén delante del fondo */
-}
-
-.promoHelp {
-    position: absolute; /* Absoluta para colocar dentro de un contenedor superior */
-    bottom: 0; /* Coloca el contenedor en la parte inferior */
-    right: 0; /* Alinea el contenedor al borde derecho */
-    display: flex; /* Flexbox para organizar el contenido */
-    flex-direction: row; /* Configura la dirección en fila (horizontal) */
-    align-items: center; /* Centra verticalmente dentro del contenedor */
-    padding: 20px; /* Añade espacio alrededor del contenido */
-    z-index: 2; /* Asegura que el contenido esté delante del fondo */
-}
-
-
-/* Estilos para los botones */
-.promo button {
-    background-color: transparent; /* Fondo transparente */
-    color: white; /* Texto blanco */
-    border: 2px solid white; /* Borde blanco */
-    border-radius: 5px; /* Bordes redondeados */
-    padding: 10px 20px; /* Espaciado interno */
-    margin: 10px; /* Espaciado entre botones */
-    font-size: 150%; /* Tamaño del texto */
+.filters button {
+    background-color: #0056b3;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s ease; /* Transición suave para el efecto hover */
 }
 
-/* Efecto hover para cambiar el fondo y color */
-.promo button:hover {
-    background-color: white; /* Cambia a fondo blanco */
-    color: #000; /* Cambia a texto negro */
+.filters button:hover {
+    background-color: #004494;
+}
+
+.cars {
+    flex: 3 1 80%; /* Toma el 80% del ancho de la pantalla */
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Alinea tarjetas a la izquierda */
+    align-items: flex-start;
+}
+
+.car-card {
+    width: 30%;
+    box-shadow: 5px 2px 5px rgba(0,0,0,0.1);
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.car-card img {
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .filters, .cars {
+        flex: 1 1 100%;
+    }
+
+    .car-card {
+        width: 100%;
+    }
+
+    header {
+        padding: 0 30px;
+    }
 }

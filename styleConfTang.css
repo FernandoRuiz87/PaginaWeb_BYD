@@ -10,6 +10,7 @@
 body {
     margin: 0; /* Elimina márgenes predeterminados */
     padding-top: 80px; /* Ajusta según la altura del header para que el contenido no quede oculto */
+    box-sizing: border-box;
 }
 
 header {
@@ -219,76 +220,173 @@ input[type="radio"]:checked + label {
     }
 }
 
-/*Configuracion para video y elementos en pantalla*/
-#hero {
-    min-height: 100vh; /* Ocupa el 100% de la altura visible del viewport */
-    position: relative;
-    overflow: hidden; /* Asegura que el contenido extra no desborde */
-    margin-top: -80px; /* Compensa el espacio ocupado por el header fijo */
-    padding-top: 80px; /* Mantiene el espacio para el header */
-}
-
-video {
-    position: absolute;
-    top: 0;
-    left: 0;
+.main{
+    background: #acacac;
     width: 100%;
+    height: calc(100vh - 80px);
+    display: flex;
+}
+
+.section {
+    background-image: url('Configuracion/Tang/TGris1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: 70%;
     height: 100%;
-    object-fit: cover;
 }
 
-.capa {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+.aside {
+    background: rgb(255, 255, 255);
+    width: 30%;
     height: 100%;
-    background: #1c1c1c;
-    opacity: 0.5;
-    mix-blend-mode: overlay;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 10px;
 }
 
-.promo {
-    position: absolute; /* Absoluta para colocarlo dentro de un contenedor superior */
-    bottom: 200px; /* Distancia desde el borde inferior */
-    left: 50%;
-    transform: translateX(-50%); /* Centra horizontalmente */
-    display: flex; /* Flexbox para organizar los elementos horizontalmente */
-    flex-direction: row; /* Configura la dirección en fila (horizontal) */
-    justify-content: center; /* Centra el contenido en el contenedor */
-    align-items: center; /* Centra verticalmente dentro del contenedor */
-    gap: 15px; /* Espaciado entre los botones */
-    width: 80%; /* Ajusta el ancho si es necesario */
-    z-index: 2; /* Asegura que los botones estén delante del fondo */
+.aside h1 {
+    margin-bottom: 20px;
 }
 
-.promoHelp {
-    position: absolute; /* Absoluta para colocar dentro de un contenedor superior */
-    bottom: 0; /* Coloca el contenedor en la parte inferior */
-    right: 0; /* Alinea el contenedor al borde derecho */
-    display: flex; /* Flexbox para organizar el contenido */
-    flex-direction: row; /* Configura la dirección en fila (horizontal) */
-    align-items: center; /* Centra verticalmente dentro del contenedor */
-    padding: 20px; /* Añade espacio alrededor del contenido */
-    z-index: 2; /* Asegura que el contenido esté delante del fondo */
+.aside h2 {
+    margin-bottom: 20px;
 }
 
+#controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px; /* Reducir margen para acercar los botones de colores */
+}
 
-/* Estilos para los botones */
-.promo button {
-    background-color: transparent; /* Fondo transparente */
-    color: white; /* Texto blanco */
-    border: 2px solid white; /* Borde blanco */
-    border-radius: 5px; /* Bordes redondeados */
-    padding: 10px 20px; /* Espaciado interno */
-    margin: 10px; /* Espaciado entre botones */
-    font-size: 150%; /* Tamaño del texto */
+#controls button {
+    margin: 0 5px;
+    padding: 10px 20px;
+    background-color: #c0c0c7;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
-    transition: all 0.3s ease; /* Transición suave para el efecto hover */
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-/* Efecto hover para cambiar el fondo y color */
-.promo button:hover {
-    background-color: white; /* Cambia a fondo blanco */
-    color: #000; /* Cambia a texto negro */
+
+#controls button:hover {
+    background-color: #000000e6;
+    transform: scale(1.05);
+    color: #FFFFFF;
+}
+
+#options {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+#colorOptions, #interiorOptions {
+    display: flex; /* Asegura que los botones estén en fila */
+    justify-content: center;
+    position: relative;
+    gap: 20px;
+}
+
+#colorOptions button , #interiorOptions button{
+    width: 40px;
+    height: 40px;
+    margin: 0 20px; /* Aumenta la separación entre los botones */
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s;
+    position: relative;
+    background-color: transparent; /* Para evitar conflictos con colores de fondo */
+}
+
+#colorOptions button:hover, #interiorOptions button:hover {
+    transform: scale(1.2); /* Aumenta el tamaño al pasar el ratón por encima */
+}
+
+#colorOptions button:nth-child(1) {
+    background-color: #808080; /* Mountain Grey */
+}
+
+#colorOptions button:nth-child(2) {
+    background-color: #ffffff; /* Snow White */
+    border: 1px solid #ccc; /* Borde para visibilidad en fondo blanco */
+}
+
+#colorOptions button:nth-child(3) {
+    background-color: #ff0000; /* Emperor Red */
+}
+
+#colorOptions button:nth-child(4) {
+    background-color: #000000; /* Doctor Black */
+}
+
+#interiorOptions button:nth-child(1) {
+    background-color: #8B4513; /* Brown */
+}
+
+#colorOptions button span, #interiorOptions button span{
+    position: absolute;
+    top: 50px; /* Coloca el texto debajo del botón */
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    text-align: center;
+    font-size: 12px;
+    color: #000;
+    visibility: hidden;
+}
+
+#colorOptions button:hover span, #interiorOptions button:hover span{
+    visibility: visible;
+}
+
+
+#options img {
+    width: 50px;
+    height: auto;
+}
+
+.price {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+@media(max-width: 600px) {
+    
+    #controls {
+        flex-direction: row; /* Cambia la dirección del flex a fila en pantallas pequeñas */
+        flex-wrap: wrap; /* Permite que los botones envuelvan si no caben en una línea */
+        justify-content: center; /* Asegura que los botones estén centrados */
+    }
+
+    #controls button {
+        margin: 10px 0;
+    }
+}
+
+@media(max-width: 700px) {
+    .main {
+        flex-direction: column;
+    }
+
+    .section {
+        width: 100%;
+        height: 50%;
+    }
+
+    .aside {
+        width: 100%;
+        height: 50%;
+    }
 }
