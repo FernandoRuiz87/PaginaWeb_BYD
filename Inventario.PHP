@@ -66,7 +66,7 @@ if (mysqli_num_rows($Result) > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="CSS/styleInventario.css">
+    <link rel="stylesheet" href="styleInventario.css">
 </head>
 
 <body>
