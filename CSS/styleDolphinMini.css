@@ -1,0 +1,451 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    /* Elimina márgenes predeterminados */
+    padding-top: 80px;
+    /* Ajusta según la altura del header para que el contenido no quede oculto */
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Asegura que ocupe todo el ancho */
+    background-color: #252728;
+    /* O el color que estés usando para el header */
+    z-index: 1000;
+    /* Usa un valor alto para asegurarte de que esté por encima de otros elementos */
+    padding: 0 50px;
+    height: 80px;
+    /* O el alto que prefieras */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo img {
+    height: 25px;
+    /* Ajusta el tamaño de la imagen */
+    width: auto;
+    /* Mantén la proporción de la imagen */
+}
+
+.help {
+    margin-right: 50px;
+}
+
+.help img {
+    height: 30px;
+    width: auto;
+}
+
+.helpPantalla {
+    margin-right: 50px;
+    display: none;
+}
+
+.bars {
+    display: none;
+}
+
+.nav-bar {
+    flex: 1;
+    /* Ocupa el espacio restante */
+    display: flex;
+    justify-content: center;
+    /* Centra los elementos en la barra */
+}
+
+.nav-bar ul {
+    display: flex;
+}
+
+.nav-bar ul li a {
+    display: block;
+    color: #FFFFFF;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 15px;
+    transition: 0.2s;
+    margin: 0 5px;
+}
+
+.nav-bar ul li a:hover {
+    color: #212127;
+    background-color: #D9D9D9;
+}
+
+.modelosMenu {
+    display: none;
+    position: absolute;
+    top: 80px;
+    /* Coloca la barra justo debajo de la barra de navegación */
+    left: 0;
+    right: 0;
+    background-color: #EFEFEF;
+    padding: 10px;
+    border: 1px sólido #ccc;
+    animation: slideDown 0.8s forwards;
+    z-index: 5;
+    /* Asegura que el menú esté detrás de la barra de navegación */
+    text-align: center;
+    /* Centra el contenido */
+}
+
+.modelosMenu .radio-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px auto;
+    color: #000;
+    background-color: #EFEFEF;
+    cursor: pointer;
+    height: 45px;
+    text-align: center;
+}
+
+.modelosMenu .radio-button.selected {
+    border-bottom: 3px solid #000;
+    /* Añade una barra debajo del texto */
+}
+
+.modelosMenu .radio-button.selected {
+    border-bottom: 3px solid #000;
+    /* Añade una barra debajo del texto */
+}
+
+.modelosMenu.show {
+    display: block;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.modelosMenu .radio-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px auto;
+    /* Asegura que los botones se centren horizontalmente */
+    color: #000;
+    background-color: #EFEFEF;
+    cursor: pointer;
+    height: 45px;
+    text-align: center;
+    /* Centra el texto dentro del botón */
+}
+
+
+input[type="radio"]:checked+label {
+    background-color: #EFEFEF;
+    border-bottom: 1px sólido #000;
+    border-width: 5px;
+    color: #000;
+}
+
+.option-image {
+    display: flex;
+    margin: 10px auto;
+    width: 300px;
+    /* Ancho fijo de la imagen */
+    height: 200px;
+    /* Alto fijo de la imagen */
+    cursor: pointer;
+    object-fit: cover;
+    /* Ajusta la imagen para que cubra todo el contenedor */
+    transition: transform 0.3s ease-in-out;
+    /* Transición suave de 0.3 segundos */
+}
+
+.option-image:hover {
+    transform: scale(1.1);
+    /* Aplica un zoom del 10% */
+}
+
+
+@media(max-width:900px) {
+    header {
+        padding: 0px 30px;
+    }
+
+    .help {
+        display: none;
+    }
+
+    .bars {
+        display: block;
+        cursor: pointer;
+        float: right;
+    }
+
+    .bars .line {
+        width: 30px;
+        height: 3px;
+        background-color: #FFFFFF;
+        margin: 6px 0px;
+    }
+
+    .nav-bar {
+        height: 0px;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        background-color: #2e2f34;
+        transition: 0.5s;
+        overflow: auto;
+        max-height: 200vh;
+    }
+
+    .nav-bar.active {
+        height: calc(100vh - 80px);
+        /* Mantiene el menú completo visible */
+    }
+
+    .nav-bar ul {
+        display: block;
+        width: fit-content;
+        margin: 40px auto 0 auto;
+        text-align: center;
+        transition: 0.5s;
+        opacity: 0;
+    }
+
+    .nav-bar.active ul {
+        opacity: 1;
+    }
+
+    .nav-bar ul li a {
+        margin-bottom: 20px;
+    }
+}
+
+section {
+    min-height: calc(100vh - 80px);
+    /* Ajusta a la altura del viewport menos la del header */
+    display: block;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* Puede que necesites cambiar a 'relative' si usas 'absolute' en los hijos */
+}
+
+.conteiner {
+    flex-direction: column;
+    min-height: 100vh;
+    /* Ocupa el 100% de la altura visible del viewport */
+    overflow: hidden;
+    /* Asegura que el contenido extra no desborde */
+    margin-top: -80px;
+    /* Compensa el espacio ocupado por el header fijo */
+    padding-top: 80px;
+    /* Mantiene el espacio para el header */
+    display: flex;
+    justify-content: flex-start;
+}
+
+.two {
+    background-image: url('/Images/dolphinMini/dolphin4.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    /* Asegura que la sección ocupe todo el ancho */
+}
+
+.three {
+    background-image: url('/Images/dolphinMini/dolphin2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    /* Asegura que la sección ocupe todo el ancho */
+
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.four {
+    background-image: url('/Images/dolphinMini/dolphin5.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    /* Asegura que la sección ocupe todo el ancho */
+}
+
+.five {
+    background-image: url('/Images/dolphinMini/dolphin6.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    /* Asegura que la sección ocupe todo el ancho */
+}
+
+.promo {
+    position: absolute;
+    /* Absoluta para colocarlo dentro de un contenedor superior */
+    bottom: 200px;
+    /* Distancia desde el borde inferior */
+    left: 50%;
+    transform: translateX(-50%);
+    /* Centra horizontalmente */
+    display: flex;
+    /* Flexbox para organizar los elementos horizontalmente */
+    flex-direction: row;
+    /* Configura la dirección en fila (horizontal) */
+    justify-content: center;
+    /* Centra el contenido en el contenedor */
+    align-items: center;
+    /* Centra verticalmente dentro del contenedor */
+    gap: 15px;
+    /* Espaciado entre los botones */
+    width: 80%;
+    /* Ajusta el ancho si es necesario */
+    z-index: 2;
+    /* Asegura que los botones estén delante del fondo */
+}
+
+/* Estilos para los botones */
+.promo button {
+    background-color: transparent;
+    /* Fondo transparente */
+    color: white;
+    /* Texto blanco */
+    border: 2px solid white;
+    /* Borde blanco */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    padding: 10px 20px;
+    /* Espaciado interno */
+    margin: 10px;
+    /* Espaciado entre botones */
+    font-size: 150%;
+    /* Tamaño del texto */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* Transición suave para el efecto hover */
+}
+
+/* Efecto hover para cambiar el fondo y color */
+.promo button:hover {
+    background-color: white;
+    /* Cambia a fondo blanco */
+    color: #000;
+    /* Cambia a texto negro */
+}
+
+.banner {
+    text-align: center;
+    /* Centra el texto horizontalmente */
+    padding: 50px 20px;
+    /* Espacio alrededor del texto */
+    color: white;
+    /* Texto de color blanco */
+}
+
+.banner h1 {
+    font-size: 3em;
+    /* Tamaño grande para el título */
+    font-weight: bold;
+    /* Texto en negrita */
+    margin-bottom: 0.5em;
+    /* Espacio debajo del título */
+}
+
+.banner p {
+    font-weight: bold;
+    font-size: 1.5em;
+    /* Tamaño mediano para el subtítulo */
+}
+
+.info-panel {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    /* Texto en color blanco */
+    padding: 20px;
+    /* Añade un poco de espacio alrededor */
+    font-family: Arial, sans-serif;
+    /* Fuente más adecuada para la visibilidad */
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centra el texto vertical y horizontalmente */
+    margin: 0 20px;
+    /* Ajusta el espaciado entre los elementos */
+}
+
+.info-value {
+    font-size: 2em;
+    /* Hace el valor más grande y prominente */
+    font-weight: bold;
+    /* Texto en negrita para destacar los números o características */
+}
+
+.info-label {
+    font-size: 1em;
+    /* Tamaño estándar para las etiquetas */
+}
+
+@media (max-width: 768px) {
+
+    .banner h1 {
+        font-size: 2em;
+        /* Tamaño grande para el título */
+        font-weight: bold;
+        /* Texto en negrita */
+        margin-bottom: 0.5em;
+        /* Espacio debajo del título */
+    }
+
+    .banner p {
+        font-weight: bold;
+        font-size: .9em;
+        /* Tamaño mediano para el subtítulo */
+    }
+
+    .info-panel {
+        flex-direction: column;
+        /* Apila los elementos verticalmente en pantallas pequeñas */
+        padding: 10px;
+    }
+
+    .info-item {
+        margin: 10px 0;
+        /* Reduce el margen en dispositivos móviles */
+    }
+
+    .info-value {
+        font-size: 1.5em;
+        /* Reduce el tamaño de fuente en dispositivos pequeños */
+    }
+
+    .info-label {
+        font-size: 0.8em;
+        /* Reduce el tamaño de fuente para las etiquetas */
+    }
+}

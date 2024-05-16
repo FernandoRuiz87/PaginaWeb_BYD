@@ -1,5 +1,5 @@
 <?php
-include("controlador.php");
+include ("controlador.php");
 
 // Procesar filtros
 $modelo = isset($_GET['model']) ? $_GET['model'] : '';
@@ -66,7 +66,7 @@ if (mysqli_num_rows($Result) > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styleInventario.css">
+    <link rel="stylesheet" href="CSS/styleInventario.css">
 </head>
 
 <body>
@@ -86,21 +86,30 @@ if (mysqli_num_rows($Result) > 0) {
                 <li>
                     <a href="#" id="modelos" class="active">Modelos</a>
                     <div class="modelosMenu">
-                        <label for="option1" class="radio-button" onclick="showImage('Images/modelos/han.png', 'han.html')">BYD HAN</label>
-                        <label for="option2" class="radio-button" onclick="showImage('Images/modelos/tang.png', 'tang.html')">BYD TANG</label>
-                        <label for="option3" class="radio-button" onclick="showImage('Images/modelos/yuan.png', 'yuan.html')">BYD YUAN</label>
-                        <label for="option4" class="radio-button" onclick="showImage('Images/modelos/seal.png', 'seal.html')">BYD SEAL</label>
-                        <label for="option2" class="radio-button" onclick="showImage('Images/modelos/dolphin.png', 'dolphin.html')">BYD DOLPHIN</label>
-                        <label for="option3" class="radio-button" onclick="showImage('Images/modelos/dolphinMini.png', 'dolphinMini.html')">BYD DOLPHIN MINI</label>
-                        <label for="option4" class="radio-button" onclick="showImage('Images/modelos/song.png', 'song.html')">BYD SONG</label>
-                        <img id="modelImage" class="option-image" style="display: none;" /> <!-- Contenedor de imagen inicial oculto -->
+                        <label for="option1" class="radio-button"
+                            onclick="showImage('Images/modelos/han.png', 'han.html')">BYD HAN</label>
+                        <label for="option2" class="radio-button"
+                            onclick="showImage('Images/modelos/tang.png', 'tang.html')">BYD TANG</label>
+                        <label for="option3" class="radio-button"
+                            onclick="showImage('Images/modelos/yuan.png', 'yuan.html')">BYD YUAN</label>
+                        <label for="option4" class="radio-button"
+                            onclick="showImage('Images/modelos/seal.png', 'seal.html')">BYD SEAL</label>
+                        <label for="option2" class="radio-button"
+                            onclick="showImage('Images/modelos/dolphin.png', 'dolphin.html')">BYD DOLPHIN</label>
+                        <label for="option3" class="radio-button"
+                            onclick="showImage('Images/modelos/dolphinMini.png', 'dolphinMini.html')">BYD DOLPHIN
+                            MINI</label>
+                        <label for="option4" class="radio-button"
+                            onclick="showImage('Images/modelos/song.png', 'song.html')">BYD SONG</label>
+                        <img id="modelImage" class="option-image" style="display: none;" />
+                        <!-- Contenedor de imagen inicial oculto -->
                     </div>
                 </li>
                 <li>
                     <a href="AcercaBYD.html" id="acerca" class="active">Acerca de BYD</a>
                 </li>
                 <li>
-                    <a href="Inventario.html" id="inventario" class="active">Inventario</a>
+                    <a href="Inventario.php" id="inventario" class="active">Inventario</a>
                 </li>
             </ul>
         </nav>
@@ -158,4 +167,5 @@ if (mysqli_num_rows($Result) > 0) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>

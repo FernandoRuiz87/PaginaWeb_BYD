@@ -8,8 +8,10 @@
 }
 
 body {
-    margin: 0; /* Elimina márgenes predeterminados */
-    padding-top: 80px; /* Ajusta según la altura del header para que el contenido no quede oculto */
+    margin: 0;
+    /* Elimina márgenes predeterminados */
+    padding-top: 80px;
+    /* Ajusta según la altura del header para que el contenido no quede oculto */
     box-sizing: border-box;
 }
 
@@ -17,19 +19,25 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%; /* Asegura que ocupe todo el ancho */
-    background-color: #252728; /* O el color que estés usando para el header */
-    z-index: 1000; /* Usa un valor alto para asegurarte de que esté por encima de otros elementos */
+    width: 100%;
+    /* Asegura que ocupe todo el ancho */
+    background-color: #252728;
+    /* O el color que estés usando para el header */
+    z-index: 1000;
+    /* Usa un valor alto para asegurarte de que esté por encima de otros elementos */
     padding: 0 50px;
-    height: 80px; /* O el alto que prefieras */
+    height: 80px;
+    /* O el alto que prefieras */
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .logo img {
-    height: 25px; /* Ajusta el tamaño de la imagen */
-    width: auto; /* Mantén la proporción de la imagen */
+    height: 25px;
+    /* Ajusta el tamaño de la imagen */
+    width: auto;
+    /* Mantén la proporción de la imagen */
 }
 
 .help {
@@ -56,11 +64,14 @@ header {
 }
 
 .nav-bar {
-    flex: 1; /* Ocupa el espacio restante */
+    flex: 1;
+    /* Ocupa el espacio restante */
     display: flex;
-    justify-content: center; /* Centra los elementos en la barra */
+    justify-content: center;
+    /* Centra los elementos en la barra */
 }
-.nav-bar ul{
+
+.nav-bar ul {
     display: flex;
 }
 
@@ -82,15 +93,18 @@ header {
 .modelosMenu {
     display: none;
     position: absolute;
-    top: 80px; /* Coloca la barra justo debajo de la barra de navegación */
-    left: 0; 
-    right: 0; 
+    top: 80px;
+    /* Coloca la barra justo debajo de la barra de navegación */
+    left: 0;
+    right: 0;
     background-color: #EFEFEF;
     padding: 10px;
     border: 1px sólido #ccc;
     animation: slideDown 0.8s forwards;
-    z-index: 5; /* Asegura que el menú esté detrás de la barra de navegación */
-    text-align: center; /* Centra el contenido */
+    z-index: 5;
+    /* Asegura que el menú esté detrás de la barra de navegación */
+    text-align: center;
+    /* Centra el contenido */
 }
 
 .modelosMenu .radio-button {
@@ -105,11 +119,13 @@ header {
 }
 
 .modelosMenu .radio-button.selected {
-    border-bottom: 3px solid #000; /* Añade una barra debajo del texto */
+    border-bottom: 3px solid #000;
+    /* Añade una barra debajo del texto */
 }
 
 .modelosMenu .radio-button.selected {
-    border-bottom: 3px solid #000; /* Añade una barra debajo del texto */
+    border-bottom: 3px solid #000;
+    /* Añade una barra debajo del texto */
 }
 
 .modelosMenu.show {
@@ -120,6 +136,7 @@ header {
     from {
         transform: translateY(-100%);
     }
+
     to {
         transform: translateY(0);
     }
@@ -128,16 +145,18 @@ header {
 .modelosMenu .radio-button {
     display: inline-block;
     padding: 10px 20px;
-    margin: 10px auto; /* Asegura que los botones se centren horizontalmente */
+    margin: 10px auto;
+    /* Asegura que los botones se centren horizontalmente */
     color: #000;
     background-color: #EFEFEF;
     cursor: pointer;
     height: 45px;
-    text-align: center; /* Centra el texto dentro del botón */
+    text-align: center;
+    /* Centra el texto dentro del botón */
 }
 
 
-input[type="radio"]:checked + label {
+input[type="radio"]:checked+label {
     background-color: #EFEFEF;
     border-bottom: 1px sólido #000;
     border-width: 5px;
@@ -147,15 +166,20 @@ input[type="radio"]:checked + label {
 .option-image {
     display: flex;
     margin: 10px auto;
-    width: 300px; /* Ancho fijo de la imagen */
-    height: 200px; /* Alto fijo de la imagen */
+    width: 300px;
+    /* Ancho fijo de la imagen */
+    height: 200px;
+    /* Alto fijo de la imagen */
     cursor: pointer;
-    object-fit: cover; /* Ajusta la imagen para que cubra todo el contenedor */
-    transition: transform 0.3s ease-in-out; /* Transición suave de 0.3 segundos */
+    object-fit: cover;
+    /* Ajusta la imagen para que cubra todo el contenedor */
+    transition: transform 0.3s ease-in-out;
+    /* Transición suave de 0.3 segundos */
 }
 
 .option-image:hover {
-    transform: scale(1.1); /* Aplica un zoom del 10% */
+    transform: scale(1.1);
+    /* Aplica un zoom del 10% */
 }
 
 
@@ -164,10 +188,10 @@ input[type="radio"]:checked + label {
         padding: 0px 30px;
     }
 
-    .help{
+    .help {
         display: none;
     }
-    
+
     .helpPantalla {
         display: block;
     }
@@ -199,7 +223,8 @@ input[type="radio"]:checked + label {
     }
 
     .nav-bar.active {
-        height: calc(100vh - 80px); /* Mantiene el menú completo visible */
+        height: calc(100vh - 80px);
+        /* Mantiene el menú completo visible */
     }
 
     .nav-bar ul {
@@ -220,7 +245,7 @@ input[type="radio"]:checked + label {
     }
 }
 
-.main{
+.main {
     background: #acacac;
     width: 100%;
     height: calc(100vh - 80px);
@@ -228,7 +253,7 @@ input[type="radio"]:checked + label {
 }
 
 .section {
-    background-image: url('Configuracion/Song/SOAzul1.jpg');
+    background-image: url('/Configuracion/Song/SOAzul1.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -244,7 +269,7 @@ input[type="radio"]:checked + label {
     text-align: center;
     border: 1px solid #ccc;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -263,7 +288,8 @@ input[type="radio"]:checked + label {
 #controls {
     display: flex;
     justify-content: center;
-    margin-bottom: 10px; /* Reducir margen para acercar los botones de colores */
+    margin-bottom: 10px;
+    /* Reducir margen para acercar los botones de colores */
 }
 
 #controls button {
@@ -291,64 +317,81 @@ input[type="radio"]:checked + label {
     align-items: center;
 }
 
-#colorOptions, #interiorOptions {
-    display: flex; /* Asegura que los botones estén en fila */
+#colorOptions,
+#interiorOptions {
+    display: flex;
+    /* Asegura que los botones estén en fila */
     justify-content: center;
     position: relative;
     gap: 20px;
 }
 
-#colorOptions button , #interiorOptions button{
+#colorOptions button,
+#interiorOptions button {
     width: 40px;
     height: 40px;
-    margin: 0 1px; /* Aumenta la separación entre los botones */
+    margin: 0 1px;
+    /* Aumenta la separación entre los botones */
     border-radius: 50%;
     border: none;
     cursor: pointer;
     transition: transform 0.3s;
     position: relative;
-    background-color: transparent; /* Para evitar conflictos con colores de fondo */
+    background-color: transparent;
+    /* Para evitar conflictos con colores de fondo */
 }
 
-#colorOptions button:hover, #interiorOptions button:hover {
-    transform: scale(1.2); /* Aumenta el tamaño al pasar el ratón por encima */
+#colorOptions button:hover,
+#interiorOptions button:hover {
+    transform: scale(1.2);
+    /* Aumenta el tamaño al pasar el ratón por encima */
 }
 
 #colorOptions button:nth-child(1) {
-    background-color: #3d6286; /* Azure Blue */
+    background-color: #3d6286;
+    /* Azure Blue */
 }
 
 #colorOptions button:nth-child(2) {
-    background-color: #760b0d; /* Snow White */
+    background-color: #760b0d;
+    /* Snow White */
 }
 
 #colorOptions button:nth-child(3) {
-    background-color: #7e7e81; /* Emperor Red */
+    background-color: #7e7e81;
+    /* Emperor Red */
 }
 
 #colorOptions button:nth-child(4) {
-    background-color: #060b11; /* Doctor Black */
+    background-color: #060b11;
+    /* Doctor Black */
 }
 
 #colorOptions button:nth-child(5) {
-    background-color: #4f5257; /* Emperor Red */
+    background-color: #4f5257;
+    /* Emperor Red */
 }
 
 #colorOptions button:nth-child(6) {
-    background-color: #b5b7ba; /* Doctor Black */
+    background-color: #b5b7ba;
+    /* Doctor Black */
 }
 
 #interiorOptions button:nth-child(1) {
-    background-color: #8e9ead; /* Brown */
+    background-color: #8e9ead;
+    /* Brown */
 }
 
 #interiorOptions button:nth-child(2) {
-    background-color: #702f04; /* Brown */
+    background-color: #702f04;
+    /* Brown */
 }
 
-#colorOptions button span, #interiorOptions button span{
+#colorOptions button span,
+#interiorOptions button span {
     position: absolute;
-    top: 50px; /* Coloca el texto debajo del botón */
+    top: 50px;
+    /* Coloca el texto debajo del botón */
     left: 50%;
     transform: translateX(-50%);
     width: max-content;
@@ -358,7 +401,8 @@ input[type="radio"]:checked + label {
     visibility: hidden;
 }
 
-#colorOptions button:hover span, #interiorOptions button:hover span{
+#colorOptions button:hover span,
+#interiorOptions button:hover span {
     visibility: visible;
 }
 
@@ -374,11 +418,14 @@ input[type="radio"]:checked + label {
 }
 
 @media(max-width: 600px) {
-    
+
     #controls {
-        flex-direction: row; /* Cambia la dirección del flex a fila en pantallas pequeñas */
-        flex-wrap: wrap; /* Permite que los botones envuelvan si no caben en una línea */
-        justify-content: center; /* Asegura que los botones estén centrados */
+        flex-direction: row;
+        /* Cambia la dirección del flex a fila en pantallas pequeñas */
+        flex-wrap: wrap;
+        /* Permite que los botones envuelvan si no caben en una línea */
+        justify-content: center;
+        /* Asegura que los botones estén centrados */
     }
 
     #controls button {

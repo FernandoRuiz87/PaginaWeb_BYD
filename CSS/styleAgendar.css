@@ -1,0 +1,459 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    /* Elimina márgenes predeterminados */
+    padding-top: 80px;
+    /* Ajusta según la altura del header para que el contenido no quede oculto */
+    transition: background-image 0.5s ease;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Asegura que ocupe todo el ancho */
+    background-color: #252728;
+    /* O el color que estés usando para el header */
+    z-index: 1000;
+    /* Usa un valor alto para asegurarte de que esté por encima de otros elementos */
+    padding: 0 50px;
+    height: 80px;
+    /* O el alto que prefieras */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo img {
+    height: 25px;
+    /* Ajusta el tamaño de la imagen */
+    width: auto;
+    /* Mantén la proporción de la imagen */
+}
+
+.help {
+    margin-right: 50px;
+}
+
+.help img {
+    height: 30px;
+    width: auto;
+}
+
+.helpPantalla {
+    margin-right: 50px;
+    display: none;
+}
+
+.bars {
+    display: none;
+}
+
+.nav-bar {
+    flex: 1;
+    /* Ocupa el espacio restante */
+    display: flex;
+    justify-content: center;
+    /* Centra los elementos en la barra */
+}
+
+.nav-bar ul {
+    display: flex;
+}
+
+.nav-bar ul li a {
+    display: block;
+    color: #FFFFFF;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 15px;
+    transition: 0.2s;
+    margin: 0 5px;
+}
+
+.nav-bar ul li a:hover {
+    color: #212127;
+    background-color: #D9D9D9;
+}
+
+.modelosMenu {
+    display: none;
+    position: absolute;
+    top: 80px;
+    /* Coloca la barra justo debajo de la barra de navegación */
+    left: 0;
+    right: 0;
+    background-color: #EFEFEF;
+    padding: 10px;
+    border: 1px sólido #ccc;
+    animation: slideDown 0.8s forwards;
+    z-index: 5;
+    /* Asegura que el menú esté detrás de la barra de navegación */
+    text-align: center;
+    /* Centra el contenido */
+}
+
+.modelosMenu .radio-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px auto;
+    color: #000;
+    background-color: #EFEFEF;
+    cursor: pointer;
+    height: 45px;
+    text-align: center;
+}
+
+.modelosMenu .radio-button.selected {
+    border-bottom: 3px solid #000;
+    /* Añade una barra debajo del texto */
+}
+
+.modelosMenu .radio-button.selected {
+    border-bottom: 3px solid #000;
+    /* Añade una barra debajo del texto */
+}
+
+.modelosMenu.show {
+    display: block;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.modelosMenu .radio-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px auto;
+    /* Asegura que los botones se centren horizontalmente */
+    color: #000;
+    background-color: #EFEFEF;
+    cursor: pointer;
+    height: 45px;
+    text-align: center;
+    /* Centra el texto dentro del botón */
+}
+
+
+input[type="radio"]:checked+label {
+    background-color: #EFEFEF;
+    border-bottom: 1px sólido #000;
+    border-width: 5px;
+    color: #000;
+}
+
+.option-image {
+    display: flex;
+    margin: 10px auto;
+    width: 300px;
+    /* Ancho fijo de la imagen */
+    height: 200px;
+    /* Alto fijo de la imagen */
+    cursor: pointer;
+    object-fit: cover;
+    /* Ajusta la imagen para que cubra todo el contenedor */
+    transition: transform 0.3s ease-in-out;
+    /* Transición suave de 0.3 segundos */
+}
+
+.option-image:hover {
+    transform: scale(1.1);
+    /* Aplica un zoom del 10% */
+}
+
+
+@media(max-width:900px) {
+    header {
+        padding: 0px 30px;
+    }
+
+    .help {
+        display: none;
+    }
+
+    .bars {
+        display: block;
+        cursor: pointer;
+        float: right;
+    }
+
+    .bars .line {
+        width: 30px;
+        height: 3px;
+        background-color: #FFFFFF;
+        margin: 6px 0px;
+    }
+
+    .nav-bar {
+        height: 0px;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        background-color: #2e2f34;
+        transition: 0.5s;
+        overflow: auto;
+        max-height: 200vh;
+    }
+
+    .nav-bar.active {
+        height: calc(100vh - 80px);
+        /* Mantiene el menú completo visible */
+    }
+
+    .nav-bar ul {
+        display: block;
+        width: fit-content;
+        margin: 40px auto 0 auto;
+        text-align: center;
+        transition: 0.5s;
+        opacity: 0;
+    }
+
+    .nav-bar.active ul {
+        opacity: 1;
+    }
+
+    .nav-bar ul li a {
+        margin-bottom: 20px;
+    }
+}
+
+section {
+    min-height: calc(100vh - 80px);
+    /* Ajusta a la altura del viewport menos la del header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* Puede que necesites cambiar a 'relative' si usas 'absolute' en los hijos */
+}
+
+.conteiner {
+    flex-direction: column;
+    min-height: 100vh;
+    /* Ocupa el 100% de la altura visible del viewport */
+    overflow: hidden;
+    /* Asegura que el contenido extra no desborde */
+    margin-top: -80px;
+    /* Compensa el espacio ocupado por el header fijo */
+    padding-top: 80px;
+    /* Mantiene el espacio para el header */
+    display: flex;
+    justify-content: flex-start;
+}
+
+.two {
+    background-image: url('/Images/byd-han.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    /* Asegura que la sección ocupe todo el ancho */
+}
+
+.modelo-select {
+    background-color: #333;
+    /* Color de fondo oscuro */
+    padding: 20px;
+    /* Espaciado interno para contenido */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    color: #fff;
+    /* Texto en color blanco para contraste */
+    margin-bottom: 30px;
+    /* Espacio adicional debajo del div */
+}
+
+
+.modelo-select h3 {
+    text-align: center;
+    /* Centra el texto horizontalmente */
+}
+
+.section-title {
+    color: #fff;
+    text-align: center;
+    /* Centra el texto horizontalmente */
+    background-color: #333;
+    /* Un color de fondo más oscuro */
+    width: 100%;
+    /* Ocupa todo el ancho disponible */
+    padding: 10px 0;
+    /* Añade algo de relleno arriba y abajo */
+    margin: 20px 0;
+    /* Espacio antes y después de la sección para separar */
+}
+
+.form-container {
+    width: auto;
+    /* O un ancho específico, dependiendo de tus necesidades */
+    max-width: 600px;
+    /* Mantiene un máximo para que no se expanda demasiado */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+    margin-bottom: 20px;
+    /* Más espacio entre grupos de entrada */
+    position: relative;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    /* Aprovecha todo el ancho disponible */
+    padding: 12px;
+    /* Relleno más grande para facilidad de entrada */
+    border: 2px solid #ccc;
+    /* Borde más grueso y suave */
+    border-radius: 4px;
+    /* Bordes ligeramente redondeados */
+    margin-bottom: 10px;
+    /* Espacio entre cada entrada */
+    background-color: rgba(255, 255, 255, 0.5);
+    /* Fondo semitransparente, ajusta la opacidad según necesites */
+    color: #000;
+    /* Color de texto para asegurar legibilidad */
+    transition: border-color 0.3s;
+    /* Transición suave para el foco */
+    top: 100%;
+    left: 0;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #0056b3;
+    /* Cambia el color del borde al enfocar */
+}
+
+.checkboxes label {
+    font-size: 14px;
+    /* Tamaño de fuente más grande para legibilidad */
+    color: #333;
+    /* Color de texto más oscuro para contraste */
+    padding: 5px;
+    /* Relleno alrededor del texto */
+}
+
+button {
+    font-size: 18px;
+    /* Tamaño de fuente más grande */
+    color: white;
+    /* Color de texto */
+    background-color: #007bff;
+    /* Color de fondo azul */
+    border: none;
+    /* Sin bordes */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    padding: 10px 20px;
+    /* Relleno interno */
+    cursor: pointer;
+    /* Cursor de puntero */
+    transition: background-color 0.3s, transform 0.3s;
+    /* Transiciones suaves */
+    outline: none;
+    /* Eliminar contorno al enfocar */
+}
+
+button:hover {
+    background-color: #0056b3;
+    /* Cambio de color al pasar el ratón */
+    transform: scale(1.05);
+    /* Escalar ligeramente */
+}
+
+select {
+    width: 100%;
+    /* Ajusta el ancho al contenedor */
+    padding: 8px 12px;
+    font-size: 16px;
+    /* Tamaño de fuente legible */
+    border: 1px solid #ccc;
+    /* Borde sutil */
+    border-radius: 4px;
+    /* Bordes redondeados */
+    background-color: white;
+    color: #333;
+    /* Color de texto oscuro para contraste */
+    align-items: center;
+}
+
+.checkboxes label {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    user-select: none;
+}
+
+.checkboxes input:checked~label::before {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    /* Centra el botón horizontalmente */
+    align-items: center;
+    /* Opcional: centra el botón verticalmente si el contenedor tiene altura */
+}
+
+.background-han {
+    background-image: url('/Images/han-cita.jpg');
+}
+
+.background-tang {
+    background-image: url('/Images/tang-cita.jpg');
+}
+
+.background-yuan {
+    background-image: url('/Images/yuan-cita.jpg');
+}
+
+.background-seal {
+    background-image: url('/Images/seal-cita.jpg');
+}
+
+.background-dolphin {
+    background-image: url('/Images/dolphin-cita.jpg');
+}
+
+.background-dolphinMini {
+    background-image: url('/Images/dolphinMini-cita.jpg');
+}
+
+.background-song {
+    background-image: url('/Images/song-cita.jpg');
+}
+
+#confirmationMessage {
+    color: green;
+    font-size: 16px;
+    margin-top: 20px;
+    text-align: center;
+    display: none;
+}
