@@ -10,6 +10,7 @@
 body {
     margin: 0; /* Elimina márgenes predeterminados */
     padding-top: 80px; /* Ajusta según la altura del header para que el contenido no quede oculto */
+    box-sizing: border-box;
 }
 
 header {
@@ -36,6 +37,16 @@ header {
 }
 
 .help img {
+    height: 30px;
+    width: auto;
+}
+
+.helpPantalla {
+    margin-right: 50px;
+    display: none;
+}
+
+.helpPantalla img {
     height: 30px;
     width: auto;
 }
@@ -157,6 +168,10 @@ input[type="radio"]:checked + label {
         display: none;
     }
     
+    .helpPantalla {
+        display: block;
+    }
+
     .bars {
         display: block;
         cursor: pointer;
@@ -205,90 +220,163 @@ input[type="radio"]:checked + label {
     }
 }
 
-/* styles.css */
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+.main{
+    background: #acacac;
+    width: 100%;
+    height: calc(100vh - 80px);
+    display: flex;
 }
 
-.container {
+.section {
+    background-color: #2e2f34;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: 20%;
+    height: 100%;
+}
+
+.aside {
+    background: rgb(255, 255, 255);
+    width: 80%;
+    height: 100%;
+    text-align: center;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 10px;
 }
 
 .filters {
-    flex: 1 1 20%; /* Toma el 20% del ancho de la pantalla */
-    padding: 20px;
-    border-right: 3px solid #ccc;
-    background-color: #f8f8f8; /* Color de fondo para los filtros */
-    margin-top: 80px; /* Ajusta este valor según necesites */
-}
-
-
-.filters form {
-    background: white;
-    padding: 20px;
-    border-radius: 8=10px;
-    box-shadow: 3px 4px 6px rgba(0,0,0,0.1);
-}
-
-.filters label, .filters select, .filters button {
-    display: block;
-    width: 100%;
-    margin: 10px 0;
-}
-
-.filters button {
-    background-color: #0056b3;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.filters button:hover {
-    background-color: #004494;
-}
-
-.cars {
-    flex: 3 1 80%; /* Toma el 80% del ancho de la pantalla */
-    padding: 20px;
-    overflow-y: auto;
+    margin-bottom: 20px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start; /* Alinea tarjetas a la izquierda */
-    align-items: flex-start;
+    align-items: center;
+    flex-direction: column;
 }
 
-.car-card {
-    width: 30%;
-    box-shadow: 5px 2px 5px rgba(0,0,0,0.1);
-    margin: 10px;
-    padding: 10px;
+.filters label {
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
     text-align: center;
 }
 
-.car-card img {
+.filters select, .filters button {
     width: 100%;
-    height: auto;
+    padding: 10px;
+    margin-bottom: 1px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
 }
 
-@media (max-width: 600px) {
-    .container {
+.filters button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 40px;
+}
+
+.filters button:hover {
+    background-color: #45a049;
+}
+
+/* Estilo general de la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Estilos responsivos para pantallas pequeñas */
+@media(max-width: 600px) {
+    
+    #controls {
+        flex-direction: row; /* Cambia la dirección del flex a fila en pantallas pequeñas */
+        flex-wrap: wrap; /* Permite que los botones envuelvan si no caben en una línea */
+        justify-content: center; /* Asegura que los botones estén centrados */
+    }
+
+    #controls button {
+        margin: 10px 0;
+    }
+}
+
+@media(max-width: 700px) {
+    .main {
         flex-direction: column;
     }
 
-    .filters, .cars {
-        flex: 1 1 100%;
-    }
-
-    .car-card {
+    .section {
         width: 100%;
+        height: 400%;
     }
 
-    header {
-        padding: 0 30px;
+    .aside {
+        width: 100%;
+        height: 60%;
     }
+
+   /* Estilo general de la tabla */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid #ddd;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    /* Mostrar solo columnas específicas (Imagen, Modelo, Sucursal) */
+    th:nth-child(n+4),
+    td:nth-child(n+4) {
+        display: none;
+    }
+
+    th:nth-child(3),
+    td:nth-child(3) {
+    display: none;
+    }
+
+    th:nth-child(1), th:nth-child(2), th:nth-child(8),
+    td:nth-child(1), td:nth-child(2), td:nth-child(8) {
+        display: table-cell;
+    }
+
 }

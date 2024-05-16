@@ -228,7 +228,7 @@ input[type="radio"]:checked + label {
 }
 
 .section {
-    background-image: url('Configuracion/Tang/TGris1.jpg');
+    background-image: url('Configuracion/Yuan/YAzul1.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -301,7 +301,7 @@ input[type="radio"]:checked + label {
 #colorOptions button , #interiorOptions button{
     width: 40px;
     height: 40px;
-    margin: 0 20px; /* Aumenta la separación entre los botones */
+    margin: 0 2px; /* Aumenta la separación entre los botones */
     border-radius: 50%;
     border: none;
     cursor: pointer;
@@ -315,24 +315,28 @@ input[type="radio"]:checked + label {
 }
 
 #colorOptions button:nth-child(1) {
-    background-color: #808080; /* Mountain Grey */
+    background-color: #0074ac; 
 }
 
 #colorOptions button:nth-child(2) {
-    background-color: #ffffff; /* Snow White */
-    border: 1px solid #ccc; /* Borde para visibilidad en fondo blanco */
+    background-color: #b71b22;
 }
 
 #colorOptions button:nth-child(3) {
-    background-color: #ff0000; /* Emperor Red */
+    background-color: #6f767c; 
 }
 
 #colorOptions button:nth-child(4) {
-    background-color: #000000; /* Doctor Black */
+    background-color: #ffffff; 
+    border: 1px solid #ccc; /* Borde para visibilidad en fondo blanco */
+}
+
+#colorOptions button:nth-child(5) {
+    background-color: #778470; 
 }
 
 #interiorOptions button:nth-child(1) {
-    background-color: #8B4513; /* Brown */
+    background-color: #5b6e85; 
 }
 
 #colorOptions button span, #interiorOptions button span{
