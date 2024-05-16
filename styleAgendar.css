@@ -261,7 +261,7 @@ section {
 }
 
 .two {
-    background-image: url('/Images/byd-han.jpg');
+    background-image: url('Images/byd-han.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -423,31 +423,31 @@ select {
 }
 
 .background-han {
-    background-image: url('/Images/han-cita.jpg');
+    background-image: url('Images/han-cita.jpg');
 }
 
 .background-tang {
-    background-image: url('/Images/tang-cita.jpg');
+    background-image: url('Images/tang-cita.jpg');
 }
 
 .background-yuan {
-    background-image: url('/Images/yuan-cita.jpg');
+    background-image: url('Images/yuan-cita.jpg');
 }
 
 .background-seal {
-    background-image: url('/Images/seal-cita.jpg');
+    background-image: url('Images/seal-cita.jpg');
 }
 
 .background-dolphin {
-    background-image: url('/Images/dolphin-cita.jpg');
+    background-image: url('Images/dolphin-cita.jpg');
 }
 
 .background-dolphinMini {
-    background-image: url('/Images/dolphinMini-cita.jpg');
+    background-image: url('Images/dolphinMini-cita.jpg');
 }
 
 .background-song {
-    background-image: url('/Images/song-cita.jpg');
+    background-image: url('Images/song-cita.jpg');
 }
 
 #confirmationMessage {

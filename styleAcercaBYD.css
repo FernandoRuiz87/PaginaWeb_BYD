@@ -282,7 +282,7 @@ video {
 }
 
 .two {
-    background-image: url('/Images/about2.jpg');
+    background-image: url('Images/about2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -317,7 +317,7 @@ video {
 
 
 .three {
-    background-image: url('/Images/about6.png');
+    background-image: url('Images/about6.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

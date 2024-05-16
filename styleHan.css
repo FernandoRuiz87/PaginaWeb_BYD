@@ -260,7 +260,7 @@ section {
 }
 
 .two {
-    background-image: url('/Images/han/han2.png');
+    background-image: url('Images/han/han2.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -269,7 +269,7 @@ section {
 }
 
 .three {
-    background-image: url('/Images/han/han1.jpg');
+    background-image: url('Images/han/han1.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -284,7 +284,7 @@ section {
 }
 
 .four {
-    background-image: url('/Images/han/han4.jpg');
+    background-image: url('Images/han/han4.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -293,7 +293,7 @@ section {
 }
 
 .five {
-    background-image: url('/Images/han/han5.png');
+    background-image: url('Images/han/han5.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
