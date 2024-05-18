@@ -65,14 +65,15 @@ if (mysqli_num_rows($Result) > 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inventario</title>
+    <link rel="icon" href="Images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styleInventario.css">
 </head>
 
 <body>
     <header>
         <div class="logo">
-            <a href="index.html">
+            <a href="Home.html">
                 <img src="Images/BYD_Logo.png" alt="BYD Logo"> <!-- Enlace al logo como imagen -->
             </a>
         </div>

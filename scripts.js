@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const bars = document.querySelector(".bars");
-    bars.onclick = function() {
+    bars.onclick = function () {
         const navBar = document.querySelector(".nav-bar");
         navBar.classList.toggle("active");
     };
@@ -62,13 +62,13 @@ function showImage(imageSrc, url) {
     selectedButton.classList.add("selected");
 }
 
-document.getElementById('modelSelect').addEventListener('change', function() {
+document.getElementById('modelSelect').addEventListener('change', function () {
     var selectedModel = this.value;
     var section = document.querySelector('.two'); // Referencia a la sección .two
 
     // Eliminar todas las clases de fondo posibles
     section.classList.remove('background-han', 'background-tang', 'background-yuan', 'background-seal', 'background-dolphin', 'background-dolphinMini', 'background-song');
-    
+
     // Añadir la clase correspondiente al modelo seleccionado
     switch (selectedModel) {
         case 'Han':
@@ -96,22 +96,21 @@ document.getElementById('modelSelect').addEventListener('change', function() {
     }
 });
 
-document.getElementById('carForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Evita que el formulario se envíe y la página se recargue
+// document.getElementById('carForm').addEventListener('submit', function (event) {
+//     // event.preventDefault(); // Evita que el formulario se envíe y la página se recargue
+//     // Aquí puedes añadir cualquier validación o lógica de envío adicional
 
-    // Aquí puedes añadir cualquier validación o lógica de envío adicional
+//     // Muestra el mensaje de confirmación
+//     document.getElementById('confirmationMessage').style.display = 'block';
 
-    // Muestra el mensaje de confirmación
-    document.getElementById('confirmationMessage').style.display = 'block';
+//     // Opcional: Limpiar el formulario después de enviar
+//     // this.reset();
 
-    // Opcional: Limpiar el formulario después de enviar
-    this.reset();
-
-    // Opcional: Si quieres simular un envío y luego mostrar el mensaje
-    setTimeout(() => {
-        alert('Cita agendada correctamente.'); // Puedes usar alert o cambiar el contenido de un div
-    }, 500); // Retrasa la alerta por 500 ms para simular el tiempo de procesamiento
-});
+//     // // Opcional: Si quieres simular un envío y luego mostrar el mensaje
+//     // setTimeout(() => {
+//     //     alert('Cita agendada correctamente.'); // Puedes usar alert o cambiar el contenido de un div
+//     // }, 500); // Retrasa la alerta por 500 ms para simular el tiempo de procesamiento
+// });
 
 function showColors() {
     document.getElementById('colorOptions').style.display = 'flex';
@@ -149,3 +148,4 @@ function updateRinesVisibility() {
         button.style.display = button.getAttribute('data-color') === selectedColor ? 'block' : 'none';
     });
 }
+
