@@ -73,7 +73,7 @@ if (mysqli_num_rows($Result) > 0) {
 <body>
     <header>
         <div class="logo">
-            <a href="Home.html">
+            <a href="index.html">
                 <img src="Images/BYD_Logo.png" alt="BYD Logo"> <!-- Enlace al logo como imagen -->
             </a>
         </div>

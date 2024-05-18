@@ -108,7 +108,7 @@ Desconectar($Con);
         </script>
 
         <div class="logo">
-            <a href="home.html">
+            <a href="index.html">
                 <img src="Images/BYD_Logo.png" alt="BYD Logo">
             </a>
         </div>
@@ -170,7 +170,7 @@ Desconectar($Con);
                         </a>
                     </div>
                     <div class="button-regresar">
-                        <a href="Home.html" class="boton-regresar">Imprimir hoja de información</a>
+                        <a href="index.html" class="boton-regresar">Imprimir hoja de información</a>
                     </div>
             </section>
         </div>
