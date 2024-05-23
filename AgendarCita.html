@@ -21,24 +21,66 @@
 
             return hoy.getFullYear() + '-' + mes + '-' + dia;
         }
+
+        function updateBackgroundImage() {
+            const modelSelect = document.getElementById('modelSelect');
+            const selectedModel = modelSelect.value;
+            const section = document.querySelector('.two');
+
+            console.log('Modelo seleccionado:', selectedModel); // Añadir este log para verificar
+
+            // Establecer la imagen de fondo según el modelo seleccionado
+            switch (selectedModel) {
+                case 'BYD-HAN':
+                    section.style.backgroundImage = "url('Images/han-cita.jpg')";
+                    break;
+                case 'BYD-TANG':
+                    section.style.backgroundImage = "url('Images/tang-cita.jpg')";
+                    break;
+                case 'BYD-YUAN':
+                    section.style.backgroundImage = "url('Images/yuan-cita.jpg')";
+                    break;
+                case 'BYD-SEAL':
+                    section.style.backgroundImage = "url('Images/seal-cita.jpg')";
+                    break;
+                case 'BYD-DOLPHIN':
+                    section.style.backgroundImage = "url('Images/dolphin-cita.jpg')";
+                    break;
+                case 'BYD-DOLPHIN-MINI':
+                    section.style.backgroundImage = "url('Images/dolphinMini-cita.jpg')";
+                    break;
+                case 'BYD-SONG':
+                    section.style.backgroundImage = "url('Images/song-cita.jpg')";
+                    break;
+                default:
+                    console.log('Modelo no encontrado');
+            }
+        }
+
+        window.onload = function () {
+            const params = new URLSearchParams(window.location.search);
+            const modelo = params.get('modelo'); // Obtiene el modelo desde la URL
+            if (modelo) {
+                const select = document.getElementById('modelSelect');
+                select.value = modelo; // Establece el valor del select al modelo obtenido
+            }
+
+            // Llamar a updateBackgroundImage para actualizar la imagen de fondo al cargar la página
+            updateBackgroundImage();
+        };
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const modelSelect = document.getElementById('modelSelect');
+
+            // Añadir evento de cambio al select
+            modelSelect.addEventListener('change', updateBackgroundImage);
+        });
     </script>
 </head>
 
 <body>
 
     <header>
-        <script>
-            window.onload = function () {
-                const params = new URLSearchParams(window.location.search);
-                const modelo = params.get('modelo'); // Obtiene el modelo desde la URL
-                if (modelo) {
-                    const select = document.getElementById('modelSelect');
-                    select.value = modelo; // Establece el valor del select al modelo obtenido
-                }
-            };
-
-        </script>
-
         <div class="logo">
             <a href="index.html">
                 <img src="Images/BYD_Logo.png" alt="BYD Logo">
@@ -92,7 +134,7 @@
 
     </header>
 
-    <form action="AgendarCita.php" method="post" id="carForm">
+    <form action="AgendarCita.php" method="POST" id="carForm">
         <div class="container">
             <section class="two">
                 <div class="form-container">
