@@ -1,6 +1,6 @@
 <?php
 include ("controlador.php");
-include ("Citas\CITA_PDF.php");
+include ("Citas/CITA_PDF.php");
 
 $Nombre = $_POST['nombre'];
 $Apellido = $_POST['apellido'];
@@ -17,14 +17,18 @@ $mensaje = "";
 $Con = Conectar();
 
 // Verifica que el vehículo esté en existencia
-$SQL = "SELECT * FROM v_inventarios_disponibles WHERE cModelo = ? AND nSucursalID = ? LIMIT 1;";
+$SQL = "SELECT nVehiculoID FROM v_inventarios_disponibles WHERE cModelo = ? AND nSucursalID = ? LIMIT 1;";
 $stmt = $Con->prepare($SQL);
+if ($stmt === false) {
+    die('Error al preparar la consulta: ' . htmlspecialchars($Con->error));
+}
+
 $stmt->bind_param('si', $Modelo, $Sucursal);
 $stmt->execute();
-$ID_vehiculo = $stmt->get_result();
+$result = $stmt->get_result();
 
-if ($ID_vehiculo->num_rows > 0) { // El vehículo está en inventario
-    $ID_vehiculo = $ID_vehiculo->fetch_array()['nVehiculoID'];
+if ($result->num_rows > 0) { // El vehículo está en inventario
+    $ID_vehiculo = $result->fetch_array()['nVehiculoID'];
 
     // Inicia una transacción para asegurar que todas las operaciones se realicen correctamente
     $Con->begin_transaction();
@@ -33,12 +37,14 @@ if ($ID_vehiculo->num_rows > 0) { // El vehículo está en inventario
         // Inserta el nuevo cliente
         $SQL = "INSERT INTO t_clientes (cNombreC, cApellidoC, cTelefonoC, cCorreoC, cDireccionC) VALUES (?, ?, ?, ?, ?);";
         $stmt = $Con->prepare($SQL);
-        $stmt->bind_param('ssiss', $Nombre, $Apellido, $Telefono, $Correo, $Direccion);
+        if ($stmt === false) {
+            throw new Exception('Error al preparar la consulta de inserción de cliente: ' . htmlspecialchars($Con->error));
+        }
+        $stmt->bind_param('sssss', $Nombre, $Apellido, $Telefono, $Correo, $Direccion);
         $stmt->execute();
 
         // Obtiene el ID del último cliente
-        $SQL = "SELECT nClienteID FROM t_clientes ORDER BY nClienteID DESC LIMIT 1;";
-        $ID_cliente = $Con->query($SQL)->fetch_array()['nClienteID'];
+        $ID_cliente = $Con->insert_id;
 
         // Asigna la reserva al empleado con menos reservas
         $SQL = "SELECT e.nEmpleadoID FROM v_empleados_sucursales e LEFT JOIN (
@@ -48,7 +54,14 @@ if ($ID_vehiculo->num_rows > 0) { // El vehículo está en inventario
         ) r ON e.nEmpleadoID = r.nEmpleadoID
         WHERE e.nSucursalID = ?
         ORDER BY COALESCE(r.reservas, 0) ASC LIMIT 1;";
+
+
         $stmt = $Con->prepare($SQL);
+        if ($stmt === false) {
+            throw new Exception('Error al preparar la consulta de selección de empleado: ' . htmlspecialchars($Con->error));
+        }
+
+
         $stmt->bind_param('i', $Sucursal);
         $stmt->execute();
         $Empleado = $stmt->get_result()->fetch_array()['nEmpleadoID'];
@@ -56,12 +69,14 @@ if ($ID_vehiculo->num_rows > 0) { // El vehículo está en inventario
         // Inserta la reserva
         $SQL = "INSERT INTO t_reservas(dFechaR, dHoraR, nClienteID, nVehiculoID, nEmpleadoID, nSucursalID) VALUES (?, ?, ?, ?, ?, ?);";
         $stmt = $Con->prepare($SQL);
+        if ($stmt === false) {
+            throw new Exception('Error al preparar la consulta de inserción de reserva: ' . htmlspecialchars($Con->error));
+        }
         $stmt->bind_param('ssiiii', $Fecha, $Hora, $ID_cliente, $ID_vehiculo, $Empleado, $Sucursal);
         $stmt->execute();
 
         // Obtiene el ID de la última reserva
-        $SQL = "SELECT nReservaID FROM t_reservas ORDER BY nReservaID DESC LIMIT 1;";
-        $ID_Reserva = $Con->query($SQL)->fetch_array()['nReservaID'];
+        $ID_Reserva = $Con->insert_id;
 
         // Confirma la transacción
         $Con->commit();
@@ -69,24 +84,20 @@ if ($ID_vehiculo->num_rows > 0) { // El vehículo está en inventario
         $NombreCompleto = $Nombre . " " . $Apellido;
         $mensaje = "Cita agendada correctamente";
 
-        echo '<script type="text/javascript">
-            window.open("about:blank", "_blank");
-        </script>';
+        GenerarCita($NombreCompleto, $ID_cliente, $ID_Reserva, $Fecha, $Hora, $Sucursal, $ID_vehiculo, $Empleado, $Con);
 
-        // GenerarCita($NombreCompleto, $ID_cliente, $ID_Reserva, $Fecha, $Hora, $Sucursal, $ID_vehiculo, $Empleado, $Con);
     } catch (Exception $e) {
         // Si algo falla, revierte la transacción
         $Con->rollback();
         $mensaje = "Error al agendar la cita: " . $e->getMessage();
-        echo $mensaje;
     }
 } else {
     $mensaje = "El vehículo seleccionado no está disponible en este momento";
-    echo $mensaje;
 }
 
 Desconectar($Con);
 ?>
+
 
 
 <!DOCTYPE html>
@@ -280,13 +291,9 @@ Desconectar($Con);
                             <?php echo $mensaje . "<br>" ?>
                         </a>
                     </div>
-                    <div class="button-regresar">
-                        <a href="index.html" class="boton-regresar">Imprimir hoja de información</a>
-                    </div>
             </section>
         </div>
     </form>
-    <div id="confirmationMessage" style="display: none;">Cita agendada correctamente</div>
     <script src="scripts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
